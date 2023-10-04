@@ -7,34 +7,32 @@ const $numeroMax = document.querySelector("#numeroMax");
 
 $botonCantNumeros.onclick = function () {
   const cantNumeros = Number($cantNumeros.value);
-  const numeros = [];
-  // tendria que ser NUMEROS ?
+  const NUMEROS = [];
 
   for (let i = 0; i < cantNumeros; i++) {
     const nuevoNumero = Math.round(Math.random() * 100);
-    numeros.push(nuevoNumero);
+    NUMEROS.push(nuevoNumero);
     const nuevoLi = document.createElement("li");
     nuevoLi.textContent = nuevoNumero;
     $listaNumeros.appendChild(nuevoLi);
   }
 
   let sumaPromedio = 0;
-  // tendria que ser SUMA_PROMEDIO ?
-  for (let i = 0; i < numeros.length; i++) {
-    sumaPromedio += numeros[i];
+  for (let i = 0; i < NUMEROS.length; i++) {
+    sumaPromedio += NUMEROS[i];
   }
   // o con .reduce tambien
-  const promedio = sumaPromedio / numeros.length;
+  const promedio = sumaPromedio / NUMEROS.length;
   $promedio.textContent = `El promedio es: ${promedio}`;
 
-  let numeroMin = numeros[0];
-  let numeroMax = numeros[0];
-  for (let i = 1; i < numeros.length; i++) {
-    if (numeros[i] < numeroMin) {
-      numeroMin = numeros[i];
+  let numeroMin = NUMEROS[0];
+  let numeroMax = NUMEROS[0];
+  for (let i = 1; i < NUMEROS.length; i++) {
+    if (NUMEROS[i] < numeroMin) {
+      numeroMin = NUMEROS[i];
     }
-    if (numeros[i] > numeroMax) {
-      numeroMax = numeros[i];
+    if (NUMEROS[i] > numeroMax) {
+      numeroMax = NUMEROS[i];
     }
   }
   $numeroMin.textContent = `El número mínimo es: ${numeroMin}`;

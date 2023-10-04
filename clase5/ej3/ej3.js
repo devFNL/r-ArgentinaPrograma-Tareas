@@ -7,7 +7,7 @@ const $minutosTotales = document.querySelector("#minutosTotales");
 const $segundosTotales = document.querySelector("#segundosTotales");
 const $cantVideos = document.querySelector("#cantVideos");
 
-let CANTIDAD_VIDEOS = 0;
+let cantVideos = 0;
 
 $botonSumar.onclick = function () {
   const horas = Number($horasInput.value);
@@ -36,6 +36,6 @@ $botonSumar.onclick = function () {
   $minutosTotales.value = minutosTotales;
   $segundosTotales.value = segundosTotales;
 
-  CANTIDAD_VIDEOS++;
-  $cantVideos.value = CANTIDAD_VIDEOS;
+  cantVideos++;
+  $cantVideos.value = cantVideos;
 };
