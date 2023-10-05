@@ -22,14 +22,16 @@ $botonSumar.onclick = function () {
   minutosTotales += minutos;
   segundosTotales += segundos;
 
-  while (segundosTotales >= 60) {
-    segundosTotales -= 60;
-    minutosTotales += 1;
+  const UNIDAD_SEGUNDOS_MINUTOS = 60;
+
+  while (segundosTotales >= UNIDAD_SEGUNDOS_MINUTOS) {
+    segundosTotales -= UNIDAD_SEGUNDOS_MINUTOS;
+    minutosTotales++;
   }
 
-  while (minutosTotales >= 60) {
-    minutosTotales -= 60;
-    horasTotales += 1;
+  while (minutosTotales >= UNIDAD_SEGUNDOS_MINUTOS) {
+    minutosTotales -= UNIDAD_SEGUNDOS_MINUTOS;
+    horasTotales++;
   }
 
   $horasTotales.value = horasTotales;
