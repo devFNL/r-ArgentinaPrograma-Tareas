@@ -1,8 +1,8 @@
-const $formulario = document.querySelector("#form");
-const nombre = $formulario.nombre.value;
-const pais = $formulario.pais.value;
-const conducta = $formulario.conducta.value;
-const carta = $formulario.regalos.value;
+// const $formulario = document.querySelector("#form");
+// const nombre = $formulario.nombre.value;
+// const pais = $formulario.pais.value;
+// const conducta = $formulario.conducta.value;
+// const carta = $formulario.regalos.value;
 
 function validarNombre(nombre) {
   const MAXIMO_CARACTERES = 50;
@@ -65,12 +65,13 @@ function validarConducta() {
   return null;
 }
 
-$formulario.addEventListener("submit", function (event) {
-  event.preventDefault();
-
+function validarYEnviar(e) {
+  e.preventDefault();
+  const $formulario = document.querySelector("#form");
   const nombre = $formulario.nombre.value;
   const pais = $formulario.pais.value;
   const carta = $formulario.regalos.value;
+  const conductaError = validarConducta();
 
   const errores = [];
   const nombreError = validarNombre(nombre);
@@ -85,7 +86,6 @@ $formulario.addEventListener("submit", function (event) {
   if (cartaError) {
     errores.push(cartaError);
   }
-  const conductaError = validarConducta();
   if (conductaError) {
     errores.push(conductaError);
   }
@@ -104,4 +104,7 @@ $formulario.addEventListener("submit", function (event) {
     $exito.style.display = "block";
     $errores.innerHTML = "";
   }
-});
+}
+
+const $botonEnviar = document.querySelector("#botonEnviar");
+$botonEnviar.addEventListener("click", validarYEnviar);
