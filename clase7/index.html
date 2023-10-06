@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Carta de Santa</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="./img/regalos.jpg" alt="" />
+      <h2>Querido Santa,</h2>
+
+      <form id="form">
+        <div class="datosUsuario">
+          <p>
+            Mi nombre es
+            <input type="text" name="nombre" id="nombre" />
+            y vivo en
+          </p>
+
+          <select name="pais">
+            <option value="" disabled selected hidden>
+              selecciona tu país
+            </option>
+            <option value="argentina">Argentina</option>
+            <option value="bolivia">Bolivia</option>
+            <option value="brasil">Brasil</option>
+            <option value="chile">Chile</option>
+            <option value="colombia">Colombia</option>
+            <option value="ecuador">Ecuador</option>
+            <option value="paraguay">Paraguay</option>
+            <option value="peru">Perú</option>
+            <option value="uruguay">Uruguay</option>
+            <option value="venezuela">Venezuela</option>
+          </select>
+        </div>
+
+        <div class="conducta">
+          <p>Creo que este año he sido...</p>
+          <input type="radio" name="conducta" value="muyBueno" />Muy Bueno
+          <input type="radio" name="conducta" value="bueno" />Bueno
+          <input type="radio" name="conducta" value="masOMenos" /> Mas o menos
+        </div>
+
+        <div class="listaRegalos">
+          <p>Este año realmente me gustaría recibir</p>
+          <textarea name="regalos" rows="4" cols="50"></textarea>
+        </div>
+
+        <div class="areabotones">
+          <button type="submit" id="bontonEnviar">Enviar Carta</button>
+        </div>
+      </form>
+
+      <div class="mensajes">
+        <ul id="errores"></ul>
+        <p id="exito">Tu carta se envió con éxito !</p>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
