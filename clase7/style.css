@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+img {
+  user-select: none;
+  width: 500px;
+}
+
+.container {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.datosUsuario {
+  display: flex;
+  gap: 5px;
+  margin: 20px auto;
+}
+
+.conducta {
+  display: flex;
+  gap: 5px;
+  margin: 20px auto;
+}
+
+.listaRegalos {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.listaRegalos textarea {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.areabotones {
+  display: flex;
+  margin: 10px auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  padding: 2px 10px;
+}
+
+.mensajes {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#errores {
+  color: brown;
+}
+
+#exito {
+  font-size: 24px;
+  display: none;
+  color: darkgreen;
+}
