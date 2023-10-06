@@ -3,35 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
-    <form id="formulario">
-      <label for="cantMiembros"
-        >Ingrese cantidad de miembros en el grupo familiar</label
-      >
+    <div class="container">
+      <h2>Cálculo de edades e ingresos familiares</h2>
+      <form id="formulario">
+        <div class="entrada">
+          <label for="cantMiembros"
+            >Ingrese cantidad de miembros en el grupo familiar</label
+          >
+          <input type="number" id="cantMiembros" />
+          <button type="button" id="botonMiembros">Siguiente</button>
+          <button>
+            <a href="">Resetear</a>
+          </button>
+        </div>
+        <div id="items">
+          <br />
+        </div>
+      </form>
+      <ul id="errores"></ul>
+      <button id="botonCalcular">Calcular</button>
 
-      <input type="number" id="cantMiembros" />
+      <div id="calculos">
+        <p id="edadMayor"></p>
+        <p id="edadMenor"></p>
+        <p id="edadPromedio"></p>
+        <p id="salarioMayor"></p>
+        <p id="salarioMenor"></p>
+        <p id="salarioPromedio"></p>
+      </div>
 
-      <button type="button" id="botonMiembros">Siguiente</button>
-      <button>
-        <a href="" style="text-decoration: none; color: black">Resetear</a>
-      </button>
-
-      <br />
-    </form>
-
-    <button id="botonCalcular">Calcular</button>
-
-    <br />
-    <em id="edadMayor"></em><br />
-    <em id="edadMenor"></em><br />
-    <em id="edadPromedio"></em><br />
-    <br />
-    <em id="salarioMayor"></em><br />
-    <em id="salarioMenor"></em><br />
-    <em id="salarioPromedio"></em><br />
-
-    <script src="ej2.js"></script>
+      <script src="ej2.js"></script>
+    </div>
   </body>
 </html>
