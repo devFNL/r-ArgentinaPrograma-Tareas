@@ -16,7 +16,7 @@ const MAXIMO_MIEMBROS = 30;
 
 // validaciones hechas:
 // edad: no puede estar vacia, no puede ser mayor a 120, y no puede tener decimales
-// salario: si esta vacio, cuenta como 0
+// salario: si esta vacio, cuenta como 0 y hace el promedio igual
 
 function validarEdad(edad) {
   return !isNaN(edad) && edad >= 0 && edad < MAXIMA_EDAD;
