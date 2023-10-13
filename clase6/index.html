@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    label,
+    input {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+      margin: 10px 2px;
+    }
+
+    p {
+      margin: 10px 5px;
+    }
+
+    #botonCalcular {
+      margin: 20px auto;
+    }
+  </style>
   <body>
     <form id="formulario">
       <label for="cantMiembros"
@@ -17,20 +35,16 @@
       <button>
         <a href="" style="text-decoration: none; color: black">Resetear</a>
       </button>
-
-      <br />
     </form>
 
     <button id="botonCalcular">Calcular</button>
 
-    <br />
-    <em id="edadMayor"></em><br />
-    <em id="edadMenor"></em><br />
-    <em id="edadPromedio"></em><br />
-    <br />
-    <em id="salarioMayor"></em><br />
-    <em id="salarioMenor"></em><br />
-    <em id="salarioPromedio"></em><br />
+    <p id="edadMayor"></p>
+    <p id="edadMenor"></p>
+    <p id="edadPromedio"></p>
+    <p id="salarioMayor"></p>
+    <p id="salarioMenor"></p>
+    <p id="salarioPromedio"></p>
 
     <script src="ej1.js"></script>
   </body>

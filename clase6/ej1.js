@@ -8,6 +8,7 @@ const $botonCalcular = document.querySelector("#botonCalcular");
 const $salarioMayor = document.querySelector("#salarioMayor");
 const $salarioMenor = document.querySelector("#salarioMenor");
 const $salarioPromedio = document.querySelector("#salarioPromedio");
+const MESES_EN_UN_ANIO = 12;
 
 $botonMiembros.onclick = function () {
   const cantMiembros = Number($cantMiembros.value);
@@ -18,7 +19,7 @@ $botonMiembros.onclick = function () {
 
     const $nuevoInputEdad = document.createElement("input");
     $nuevoInputEdad.type = "number";
-    $nuevoInputEdad.id = "edades";
+    $nuevoInputEdad.className = "edades";
 
     const $nuevaLabelSalario = document.createElement("label");
     $nuevaLabelSalario.textContent = `Ingrese el salario mensual del ${
@@ -27,7 +28,7 @@ $botonMiembros.onclick = function () {
 
     const $nuevoInputSalario = document.createElement("input");
     $nuevoInputSalario.type = "number";
-    $nuevoInputSalario.id = "salarios";
+    $nuevoInputSalario.className = "salarios";
 
     const $br = document.createElement("br");
 
@@ -35,46 +36,60 @@ $botonMiembros.onclick = function () {
     $formulario.appendChild($nuevoInputEdad);
     $formulario.appendChild($nuevaLabelSalario);
     $formulario.appendChild($nuevoInputSalario);
-    $formulario.appendChild($br);
   }
 
   return false;
 };
 
-$botonCalcular.onclick = function () {
-  const $edades = document.querySelectorAll("#edades");
-
-  const edades = [];
-  for (let i = 0; i < $edades.length; i++) {
-    edades.push(Number($edades[i].value));
+function obtenerEdades(edades) {
+  const edadesInputs = document.querySelectorAll(".edades");
+  for (let i = 0; i < edadesInputs.length; i++) {
+    edades.push(Number(edadesInputs[i].value));
   }
+}
 
-  const edadMayor = Math.max(...edades);
-  const edadMenor = Math.min(...edades);
-  const edadPromedio =
-    edades.reduce((prev, curr) => prev + curr, 0) / edades.length;
-
-  $edadMayor.textContent = `La edad mayor es: ${edadMayor}`;
-  $edadMenor.textContent = `La edad menor es: ${edadMenor}`;
-  $edadPromedio.textContent = `La edad promedio es: ${edadPromedio}`;
-
-  const $salarios = document.querySelectorAll("#salarios");
-
-  const salarios = [];
-  const MESES_EN_UN_ANIO = 12;
-
-  for (let i = 0; i < $salarios.length; i++) {
-    if ($salarios[i].value > 0) {
-      salarios.push(Number($salarios[i].value) * MESES_EN_UN_ANIO);
+function obtenerSalarios(salarios) {
+  const salariosInputs = document.querySelectorAll(".salarios");
+  for (let i = 0; i < salariosInputs.length; i++) {
+    const salarioMensual = Number(salariosInputs[i].value);
+    if (salarioMensual > 0) {
+      salarios.push(salarioMensual * MESES_EN_UN_ANIO);
     }
   }
+}
 
-  const salarioMayor = Math.max(...salarios);
-  const salarioMenor = Math.min(...salarios);
-  const salarioPromedio =
-    salarios.reduce((prev, curr) => prev + curr, 0) / salarios.length;
+function calcularMayor(array) {
+  return Math.max(...array);
+}
 
-  $salarioMayor.textContent = `El salario anual mayor es: $${salarioMayor}`;
-  $salarioMenor.textContent = `El salario anual menor es: $${salarioMenor}`;
-  $salarioPromedio.textContent = `El salario anual promedio es: $${salarioPromedio}`;
+function calcularMenor(array) {
+  return Math.min(...array);
+}
+
+function calcularPromedio(array) {
+  return array.reduce((prev, curr) => prev + curr, 0) / array.length;
+}
+
+$botonCalcular.onclick = function () {
+  const edades = [];
+  obtenerEdades(edades);
+
+  const salarioMayorEdad = calcularMayor(edades);
+  const salarioMenorEdad = calcularMenor(edades);
+  const salarioPromedioEdad = calcularPromedio(edades);
+
+  $edadMayor.textContent = `La edad mayor es: ${salarioMayorEdad}`;
+  $edadMenor.textContent = `La edad menor es: ${salarioMenorEdad}`;
+  $edadPromedio.textContent = `La edad promedio es: ${salarioPromedioEdad}`;
+
+  const salarios = [];
+  obtenerSalarios(salarios);
+
+  const salarioMayorSalario = calcularMayor(salarios);
+  const salarioMenorSalario = calcularMenor(salarios);
+  const salarioPromedioSalario = calcularPromedio(salarios);
+
+  $salarioMayor.textContent = `El salario anual mayor es: $${salarioMayorSalario}`;
+  $salarioMenor.textContent = `El salario anual menor es: $${salarioMenorSalario}`;
+  $salarioPromedio.textContent = `El salario anual promedio es: $${salarioPromedioSalario}`;
 };
