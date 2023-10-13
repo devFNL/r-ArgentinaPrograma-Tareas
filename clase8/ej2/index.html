@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Cálculo de edades e ingresos familiares</h2>
+      <form id="formulario">
+        <div class="entrada">
+          <label for="cantidadMiembros"
+            >Ingrese cantidad de miembros en el grupo familiar</label
+          >
+          <input type="number" id="cantidadMiembros" />
+          <button type="button" id="botonMiembros">Siguiente</button>
+          <button>
+            <a href="">Resetear</a>
+          </button>
+        </div>
+        <div id="items">
+          <br />
+        </div>
+      </form>
+      <ul id="errores"></ul>
+      <button id="botonCalcular">Calcular</button>
+
+      <div id="calculos">
+        <p id="edadMayor"></p>
+        <p id="edadMenor"></p>
+        <p id="edadPromedio"></p>
+        <p id="salarioMayor"></p>
+        <p id="salarioMenor"></p>
+        <p id="salarioPromedio"></p>
+      </div>
+
+      <script src="ej2.js"></script>
+    </div>
+  </body>
+</html>
