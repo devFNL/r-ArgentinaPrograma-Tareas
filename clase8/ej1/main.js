@@ -1,3 +1,5 @@
+const $formulario = document.querySelector("#form");
+
 function validarNombre(nombre) {
   const MAXIMO_CARACTERES = 50;
 
@@ -42,11 +44,11 @@ function validarCarta(carta) {
 }
 
 function validarConducta() {
-  const conductaRadios = document.querySelectorAll('[name="conducta"]');
+  const conductaUsuario = document.querySelectorAll('[name="conducta"]');
   let seleccionado = false;
 
-  for (let i = 0; i < conductaRadios.length; i++) {
-    if (conductaRadios[i].checked) {
+  for (let i = 0; i < conductaUsuario.length; i++) {
+    if (conductaUsuario[i].checked) {
       seleccionado = true;
       break;
     }
@@ -63,48 +65,63 @@ function redireccionar() {
   window.location.href = "wishlist.html";
 }
 
-function validarYEnviar(e) {
-  e.preventDefault();
-  const $formulario = document.querySelector("#form");
+function validar() {
   const nombre = $formulario.nombre.value;
   const pais = $formulario.pais.value;
   const carta = $formulario.regalos.value;
-  const conductaError = validarConducta();
 
   const errores = [];
-  const nombreError = validarNombre(nombre);
-  if (nombreError) {
-    errores.push(nombreError);
-  }
-  const paisError = validarPais(pais);
-  if (paisError) {
-    errores.push(paisError);
-  }
-  const cartaError = validarCarta(carta);
-  if (cartaError) {
-    errores.push(cartaError);
-  }
+
+  const conductaError = validarConducta();
   if (conductaError) {
     errores.push(conductaError);
   }
 
+  const nombreError = validarNombre(nombre);
+  if (nombreError) {
+    errores.push(nombreError);
+  }
+
+  const paisError = validarPais(pais);
+  if (paisError) {
+    errores.push(paisError);
+  }
+
+  const cartaError = validarCarta(carta);
+  if (cartaError) {
+    errores.push(cartaError);
+  }
+
+  return errores;
+}
+
+function crearErrores(errores) {
   const $errores = document.querySelector("#errores");
-  const $exito = document.querySelector("#exito");
+  $errores.innerHTML = "";
+
+  errores.forEach((error) => {
+    const li = document.createElement("li");
+    li.textContent = error;
+    $errores.appendChild(li);
+  });
+}
+
+function enviar(e) {
+  e.preventDefault();
+  const errores = validar();
 
   if (errores.length > 0) {
-    $errores.innerHTML = "";
-    errores.forEach((error) => {
-      const li = document.createElement("li");
-      li.textContent = error;
-      $errores.appendChild(li);
-    });
+    crearErrores(errores);
   } else {
+    const $exito = document.querySelector("#exito");
+    const $formulario = document.querySelector("#form");
+
     $exito.style.display = "block";
-    $errores.innerHTML = "";
+    crearErrores([]);
     $formulario.style.display = "none";
     setTimeout(redireccionar, 3000);
   }
 }
 
 const $botonEnviar = document.querySelector("#botonEnviar");
-$botonEnviar.addEventListener("click", validarYEnviar);
+$botonEnviar.addEventListener("click", enviar);
