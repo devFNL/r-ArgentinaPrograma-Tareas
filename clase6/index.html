@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    label,
+    input {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+      margin: 10px 2px;
+    }
+
+    p {
+      margin: 10px 5px;
+    }
+
+    #botonCalcular {
+      margin: 20px auto;
+    }
+  </style>
+  <body>
+    <form id="formulario">
+      <label for="cantMiembros"
+        >Ingrese cantidad de miembros en el grupo familiar</label
+      >
+
+      <input type="number" id="cantMiembros" />
+
+      <button type="button" id="botonMiembros">Siguiente</button>
+      <button>
+        <a href="" style="text-decoration: none; color: black">Resetear</a>
+      </button>
+    </form>
+
+    <button id="botonCalcular">Calcular</button>
+
+    <p id="edadMayor"></p>
+    <p id="edadMenor"></p>
+    <p id="edadPromedio"></p>
+    <p id="salarioMayor"></p>
+    <p id="salarioMenor"></p>
+    <p id="salarioPromedio"></p>
+
+    <script src="ej1.js"></script>
+  </body>
+</html>
